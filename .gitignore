@@ -22,3 +22,4 @@ datos/
 archivosnumpy/
 *.npy
 *.wav
+runs/*

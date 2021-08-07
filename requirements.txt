@@ -1,3 +1,4 @@
 tensorboardX
 tqdm
 pydub
+librosa

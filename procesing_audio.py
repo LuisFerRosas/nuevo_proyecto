@@ -107,7 +107,7 @@ def scalerDatos2(path):
         y,sr=librosa.load(os.path.join(path,file),22050)
         mfc=feature_mfcc(y,sr)
         mfc=scaler.fit_transform(mfc)
-        # mfc= np.expand_dims(mfc,axis = 0)
+        mfc= np.expand_dims(mfc,axis = 0)
         
         # waveform.append(mfc)
         waveform[file]=mfc.tolist()
@@ -142,47 +142,47 @@ if __name__ == '__main__':
     # segundosFile('datos2/validateAudio/')
     # ejecutarAlargarAudio('datos2/audio','datos2/audio2')
     # recortarAudio('datos2/audio2','datos2/audio3')
-    # wave,nombre= scalerDatos2('datos2/audio')
+    wave,nombre= scalerDatos2('datos2/audio')
     
-    # with open('archivosnumpy/train_sinrecorte.npy', 'wb') as f:
-    #     np.save(f, wave)
-    #     np.save(f,nombre)
+    with open('archivosnumpy/train_sinrecorte2.npy', 'wb') as f:
+        np.save(f, wave)
+        np.save(f,nombre)
    
-    # with open('archivosnumpy/train_sinrecorte.npy', 'rb') as f:
-    #     wave = np.load(f,allow_pickle=True).item() 
-    #     nombres = np.load(f)
+    with open('archivosnumpy/train_sinrecorte2.npy', 'rb') as f:
+        wave = np.load(f,allow_pickle=True).item() 
+        nombres = np.load(f)
         
     
    
-    # print(len(wave))
-    # print(len(nombres))
+    print(len(wave))
+    print(len(nombres))
     #////////////////////////////////////////////////////////
     #VALIDATE
     # ejecutarAlargarAudio('datos2/validateAudio','datos2/validateAudio2')
     # recortarAudio('datos2/validateAudio2','datos2/validateAudio3')
-    wave,nombre= scalerDatos('datos2/validateAudio3')
-    with open('archivosnumpy/valid_audio_nombre.npy', 'wb') as f:
-        np.save(f, wave)
-        np.save(f,nombre)
-   
-    with open('archivosnumpy/valid_audio_nombre.npy', 'rb') as f:
-        wave = np.load(f) 
-        nombres = np.load(f)
-    
-    print(len(wave))
-    print(len(nombres))
-    # pass
-    # wave,nombre= scalerDatos2('datos2/validateAudio')
-    
-    # with open('archivosnumpy/valid_sinrecorte.npy', 'wb') as f:
+    # wave,nombre= scalerDatos('datos2/validateAudio3')
+    # with open('archivosnumpy/valid_audio_nombre.npy', 'wb') as f:
     #     np.save(f, wave)
     #     np.save(f,nombre)
    
-    # with open('archivosnumpy/valid_sinrecorte.npy', 'rb') as f:
-    #     wave = np.load(f,allow_pickle=True).item() 
+    # with open('archivosnumpy/valid_audio_nombre.npy', 'rb') as f:
+    #     wave = np.load(f) 
     #     nombres = np.load(f)
+    
+    # print(len(wave))
+    # print(len(nombres))
+    # pass
+    wave,nombre= scalerDatos2('datos2/validateAudio')
+    
+    with open('archivosnumpy/valid_sinrecorte2.npy', 'wb') as f:
+        np.save(f, wave)
+        np.save(f,nombre)
+   
+    with open('archivosnumpy/valid_sinrecorte2.npy', 'rb') as f:
+        wave = np.load(f,allow_pickle=True).item() 
+        nombres = np.load(f)
         
     
    
-    # print(len(wave))
-    # print(len(nombres))
+    print(len(wave))
+    print(len(nombres))
